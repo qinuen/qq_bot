@@ -1,0 +1,8 @@
+{
+  "component": "simbot.mirai",
+  "code": bot的qq号,
+  "passwordInfo": {
+    "type": "text",
+    "text": "bot的密码，可以不是明文，官方文档有加密的写法可以参考"
+  }
+}

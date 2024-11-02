@@ -1,0 +1,66 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: record-history
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 运行nacos的服务器地址
+        ip: 你希望被调用方使用的 IP 地址 一般是运行该项目的服务器
+        port: 8097  # 被调用方服务的端口
+  #数据库
+  datasource:
+    username: 数据库账号
+    password: 数据库密码
+    url: jdbc:mysql://localhost:3306/数据库名?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    #Druid
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunMillis: 60000
+    minEvictableIdleTimeMillis: 30000
+    valiDationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testReturn: false
+    poolPreparedStatements: true
+
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+
+    mybatis-plus:
+      # 全局配置文件位置（可选）
+      #config-location: classpath:mybatis/mybatis-config.xml
+
+      # Mapper XML文件位置
+      mapper-locations: classpath:mapper/**/*.xml
+
+      # 配置实体类所在的包名，MyBatis-Plus会自动扫描并注册为别名
+      type-aliases-package: com.record.record_history.entity
+      # 全局配置
+      global-config:
+        # 配置表前缀
+        #db-config:
+         # table-prefix: tbl_
+        # 开启驼峰命名规则转换
+        capital-mode: true
+        # 配置逻辑删除相关属性
+        logic-delete-value: 1
+        logic-not-delete-value: 0
+
+      # 分页插件配置
+      pagination:
+        enabled: false
+        page-size: 10
+        reasonable: true
+
+feign:
+  hystrix:
+    enabled: true

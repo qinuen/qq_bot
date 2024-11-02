@@ -1,0 +1,28 @@
+server:
+  port: 8097
+
+spring:
+  application:
+    name: qq-bot
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos服务器地址
+        ip: 在nacos上的ip，一般是运行该项目的服务器
+        port: 8086
+
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 5000   # 连接超时时间，单位为毫秒
+        readTimeout: 5000      # 读取超时时间，单位为毫秒
+##Ribbon超时重试配置
+ribbon:
+  ConnectTimeout: 20000  #毫秒    连接超时时间
+  ReadTimeout: 20000     #毫秒      逻辑处理超时时间
+  OkToRetryOnAllOperations: true    # 是否对所有操作都进行重试
+  MaxAutoRetries: 2     # 对当前实例的最大重试次数(请求服务超时6s则会再请求一次)
+  MaxAutoRetriesNextServer: 1     # 切换实例的最大重试次数(如果还失败就切换下

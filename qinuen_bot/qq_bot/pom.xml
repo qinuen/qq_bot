@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.bot</groupId>
+        <artifactId>qinuen_bot</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>qq_bot</artifactId>
+    <packaging>jar</packaging>
+    <properties>
+        <java.version>1.8</java.version>
+        <spring-boot.version>2.6.13</spring-boot.version>
+        <start-class>com.bot.qq_bot.QqBotApplication</start-class>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.6.13</version>
+        </dependency>
+        <!--nacos客户端-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-loadbalancer</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.alibaba.fastjson2/fastjson2 -->
+        <dependency>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2</artifactId>
+            <version>2.0.52</version>
+        </dependency>
+        <!-- redis -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+        <!-- log4j -->
+    <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>1.2.17</version>
+    </dependency>
+    <!--日志依赖-->
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.7.32</version>
+    </dependency>
+    <!--		机器人依赖-->
+    <!-- simbot-spring-boot-starter 库 -->
+    <!-- https://mvnrepository.com/artifact/love.forte.simbot.boot/simboot-core-spring-boot-starter
+    <dependency>
+        <groupId>love.forte.simbot.boot</groupId>
+        <artifactId>simboot-core-spring-boot-starter</artifactId>
+        <version>3.2.0</version>
+    </dependency>
+    <!- https://mvnrepository.com/artifact/love.forte.simple-robot/component-mirai
+    <dependency>
+        <groupId>love.forte.simple-robot</groupId>
+        <artifactId>component-mirai</artifactId>
+        <version>2.5.2</version>
+    </dependency>
+    -->
+    <!--simbot-->
+    <dependency>
+        <groupId>love.forte.simbot.boot</groupId>
+        <artifactId>simboot-core-spring-boot-starter</artifactId>
+        <version>3.0.0-M6</version>
+    </dependency>
+    <!-- mirai组件 -->
+    <dependency>
+        <groupId>love.forte.simbot.component</groupId>
+        <artifactId>simbot-component-mirai-core</artifactId>
+        <version>3.0.0.0-M4</version>
+    </dependency>
+    <!-- httpclient -->
+    <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient</artifactId>
+        <version>4.5.13</version>
+    </dependency>
+    <!-- Jackson for JSON Parsing -->
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>2.12.3</version>
+    </dependency>
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>1.18.20</version> <!-- 添加版本号 -->
+        <scope>provided</scope>
+    </dependency>
+        <dependency>
+            <groupId>net.minidev</groupId>
+            <artifactId>json-smart</artifactId>
+            <version>2.4.11</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Spring Boot Maven Plugin -->
+
+            <!-- Maven Compiler Plugin，用于指定 Java 版本 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+
+                <configuration>
+                    <source>1.8</source>  <!-- 设置源码版本 -->
+                    <target>1.8</target>  <!-- 设置目标版本 -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

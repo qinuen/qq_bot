@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.record.record_history.dao.WeatherGroupMapper">
+    <insert id="serUserCity">
+        INSERT INTO weather_group(user_qq,user_group,user_city,create_date,delete_flag)VALUES(#{qq},#{group},#{city},#{date},'NOT_DELETE')
+    </insert>
+
+    <select id="getCityList" resultType="String">
+        SELECT user_city
+        FROM weather_group
+        GROUP BY user_city
+    </select>
+
+    <select id="selectAllMap" resultType="Map">
+        SELECT * FROM weather_group
+    </select>
+</mapper>
